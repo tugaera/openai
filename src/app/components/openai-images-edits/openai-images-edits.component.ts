@@ -7,15 +7,14 @@ import { OpenaiService } from '../../services/openai.service';
   styleUrl: './openai-images-edits.component.scss'
 })
 export class OpenaiImagesEditsComponent {
+  private imageFiles: Map<string, File> = new Map();
+  prompt: string = '';
+
   constructor(private openaiService: OpenaiService) {}
 
   sendImageEditRequest() {
     // Simulação de dados para o exemplo, você deve fornecer seus próprios dados
-    const formData = new FormData();
-    formData.append('image', 'caminho/para/sua/imagem.jpg');
-    formData.append('edits', JSON.stringify({ your_edits: 'aqui' }));
-
-    this.openaiService.sendImageEditRequest(formData).subscribe(
+    this.openaiService.sendImageEditRequest(this.imageFiles, this.prompt).subscribe(
       (response) => {
         console.log('Resposta da solicitação de edição de imagem:', response);
         // Lide com a resposta conforme necessário
@@ -25,5 +24,10 @@ export class OpenaiImagesEditsComponent {
         // Lide com o erro conforme necessário
       }
     );
+  }
+
+  handleImageChange(event: any, imageName: string) {
+    const file: File = event.target.files[0];
+    this.imageFiles.set(imageName, file);
   }
 }

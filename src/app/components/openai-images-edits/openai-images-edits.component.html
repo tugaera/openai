@@ -1,4 +1,14 @@
 <div>
     <h2>OpenAI Images Edits</h2>
+
+    <label for="image1">image:</label>
+    <input type="file" id="image1" (change)="handleImageChange($event, 'image')">
+
+    <label for="image2">mask:</label>
+    <input type="file" id="image2" (change)="handleImageChange($event, 'mask')">
+
+    <label for="prompt">prompt:</label>
+    <input type="text" id="prompt" [(ngModel)]="prompt">
+
     <button (click)="sendImageEditRequest()">Enviar Solicitação de Edição de Imagem</button>
 </div>

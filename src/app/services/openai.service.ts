@@ -38,6 +38,9 @@ export class OpenaiService {
       model: "dall-e-3",
       prompt: prompt,
       // Adicione outros parâmetros conforme necessário
+      // size: '1792x1024'
+      // quality: 'hd'
+      // n: 2
     };
 
     return this.http.post<any>(apiUrl, data, { headers });
@@ -93,11 +96,33 @@ export class OpenaiService {
     return this.http.post<any>(apiUrl, data, { headers });
   }
 
-  sendImageEditRequest(formData: FormData): Observable<any> {
-    const apiUrl = 'https://api.openai.com/v1/chat/completions';
+  sendImageEditRequest(imageFiles: Map<string, File>, prompt: string): Observable<any> {
+    const apiUrl = 'https://api.openai.com/v1/images/edits';
     const headers = new HttpHeaders({
       'Authorization': `Bearer ${this.apiKey}`
     });
+
+    const formData = new FormData();
+
+    // Adiciona os arquivos de imagem ao FormData
+    imageFiles.forEach((file, imageName) => {
+      formData.append(imageName, file);
+    });
+
+    // Adiciona o prompt ao FormData
+    formData.append('prompt', prompt);
+
+    formData.append('model', 'dall-e-2');
+
+    const json = {
+      "input_image": "https://static.preparaenem.com/2022/08/paisagem-natural-suica.jpg",
+      "edits": [
+        {
+          "instruction": "Put a storm in the sky",
+          // "mask": "<URL_ou_Dados_da_Máscara_Opcional>"
+        }
+      ]
+    }
 
     return this.http.post(apiUrl, formData, { headers });
   }
