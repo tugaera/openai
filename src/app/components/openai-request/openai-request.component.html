@@ -1,0 +1,5 @@
+<div>
+    <h2>OpenAI Request</h2>
+    <button (click)="getRequest()">Fazer Solicitação OpenAI</button>
+    <div *ngIf="response">{{ response.choices[0]?.text }}</div>
+</div>

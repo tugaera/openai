@@ -1,0 +1,14 @@
+<div>
+    <h2>OpenAI Vision Preview</h2>
+    <label for="imageUrl">URL da Imagem:</label>
+    <input type="text" id="imageUrl" [(ngModel)]="imageUrl" placeholder="Insira a URL da imagem...">
+    <br>
+    <label for="imageDescription">O que você deseja procurar na imagem?</label>
+    <input type="text" id="imageDescription" [(ngModel)]="imageDescription" placeholder="Insira a descrição ou pergunta...">
+    <br>
+    <button (click)="generateVisionPreview()" [disabled]="loading">Visualização de Visão OpenAI</button>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <div *ngIf="visionPreview">
+        <p>{{ visionPreview }}</p>
+    </div>
+</div>

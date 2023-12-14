@@ -1,0 +1,77 @@
+div {
+  width: 400px;
+  margin: 20px auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  position: relative;
+}
+
+.menu-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+p {
+  margin: 10px 0;
+}
+
+.user-message {
+  background-color: #f0f0f0;
+  padding: 5px;
+  border-radius: 5px;
+  margin-right: 20px;
+  text-align: right;
+  overflow-wrap: break-word;
+  max-width: calc(100% - 40px);
+}
+
+.assistant-message {
+  background-color: #e6f7ff;
+  padding: 5px;
+  border-radius: 5px;
+  margin-left: 20px;
+  overflow-wrap: break-word;
+  max-width: calc(100% - 40px);
+}
+
+.message-input-container {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 20px);
+}
+
+.message-input {
+  flex: 1;
+  width: calc(100% - 40px);
+  padding: 8px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.send-button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px; /* Adicionado para dar espaço entre a input e o botão */
+}
+
+.send-button:disabled {
+  background-color: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.mat-spinner {
+  margin-left: 10px;
+}

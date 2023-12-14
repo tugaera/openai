@@ -1,0 +1,21 @@
+/* You can add global styles to this file, and also import other style files */
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+// @import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+/* Adicione estilos de botão do Angular Material */
+.mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mat-button {
+  min-width: 64px; /* ou ajuste conforme necessário */
+}
+
+mat-spinner {
+    margin-left: 10px;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

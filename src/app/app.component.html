@@ -1,0 +1,11 @@
+<mat-toolbar color="primary" *ngIf="showMenu">
+  <span>OpenAI App</span>
+  <button mat-button routerLink="/">Home</button>
+  <button mat-button routerLink="/openai-chat">Chat</button>
+  <button mat-button routerLink="/openai-request">OpenAI Request</button>
+  <button mat-button routerLink="/openai-images-generations">Images Generation</button>
+  <button mat-button routerLink="/openai-vision-preview">Vision Preview</button>
+  <button mat-button routerLink="/openai-images-edits">Edição de Imagens</button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

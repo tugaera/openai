@@ -1,0 +1,10 @@
+<div>
+    <h2>OpenAI Images Generation</h2>
+    <label for="prompt">Digite o prompt:</label>
+    <input type="text" id="prompt" [(ngModel)]="prompt" placeholder="Digite o prompt...">
+    <button (click)="generateImage()" [disabled]="loading">Gerar Imagem OpenAI</button>
+    <mat-spinner *ngIf="loading"></mat-spinner>
+    <div *ngIf="generatedImage">
+        <img [src]="generatedImage" alt="Imagem Gerada">
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div>
+  <h2>
+    Chat com OpenAI
+    <button mat-icon-button [matMenuTriggerFor]="menu" class="menu-button">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="downloadHistory()">Download Histórico</button>
+      <input type="file" (change)="uploadHistory($event)" accept=".json">
+      <button mat-menu-item (click)="clearHistory()">Limpar Histórico</button>
+    </mat-menu>
+  </h2>
+  <div *ngFor="let message of chatHistory" [ngClass]="{'user-message': message.role === 'user', 'assistant-message': message.role === 'assistant'}">
+    <p>{{ message.role }}: {{ message.content }}</p>
+  </div>
+  <div class="message-input-container">
+    <input type="text" [(ngModel)]="userInput" placeholder="Digite sua mensagem..." class="message-input">
+    <button mat-icon-button (click)="sendMessage()" [disabled]="loading" class="send-button">
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
+  <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+</div>
